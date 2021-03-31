@@ -4,33 +4,20 @@ import Recipe from "./Recipe";
 class RecipeContainer extends Component {
 	constructor() {
 		super();
-
-		this.state = {
-			recipes: [],
-		};
-	}
-
-	getRecipes() {
-		fetch("/recipes/")
-			.then((response) => response.json())
-			.then((data) => {
-				this.setState({ recipes: data });
-			})
-			.catch((error) => console.log("Error: ", error));
-	}
-
-	componentDidMount() {
-		this.getRecipes();
 	}
 
 	render() {
 		const recipes = [];
-		for (let i = 0; i < this.state.recipes.length; i++) {
+		for (let i = 0; i < this.props.recipes.length; i++) {
 			recipes.push(
-				<Recipe key={"recipe" + i} recipe={this.state.recipes[i]} />
+				<Recipe
+					key={"recipe" + i}
+					recipe={this.props.recipes[i]}
+					deleteRecipe={this.props.deleteRecipe}
+				/>
 			);
 		}
-		return <div id="recipeContainer">{recipes}</div>;
+		return <div className="recipesContainer">{recipes}</div>;
 	}
 }
 

@@ -7,21 +7,28 @@ class Recipe extends Component {
 		// 	// ingredientList.push(<IngredientItem />);
 		// 	ingredientList.push(<li>{this.props.recipe.ingredients[i]}</li>);
 		// }
-
 		return (
 			<div className="recipes">
 				<div className="recipeHeader">
 					<div className="recipeHeaderText">
 						<p className="recipeTitles">{this.props.recipe.title}</p>
-						<a
-							className="recipeLinks"
-							href={this.props.recipe.link}
-							target="_blank"
-						>
-							link
-						</a>
+						{/* Add link if exists */}
+						{this.props.recipe.link && (
+							<a
+								className="recipeLinks"
+								href={this.props.recipe.link}
+								target="_blank"
+							>
+								link
+							</a>
+						)}
 					</div>
-					<button className="deleteRecipeButton">x</button>
+					<button
+						onClick={this.props.deleteRecipe}
+						className="deleteRecipeButton"
+					>
+						x
+					</button>
 				</div>
 				<p className="ingredientsLabel">Ingredients</p>
 				<p className="ingredientItems">{this.props.recipe.ingredients}</p>

@@ -50,7 +50,10 @@ body {
 	padding: 10px;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	flex-wrap: wrap;
+
+	button {
+		width: 100px;
+	}
 }
 
 .popup-box {
@@ -90,4 +93,9 @@ body {
 	text-align: center;
 	border: 1px solid #999;
 	font-size: 20px;
+}
+
+.recipesContainer {
+	display: flex;
+	flex-wrap: wrap;
 }

@@ -7,7 +7,10 @@ class RecipesContainer extends Component {
 	render() {
 		return (
 			<div>
-				<RecipeContainer />
+				<RecipeContainer
+					deleteRecipe={this.props.deleteRecipe}
+					recipes={this.props.recipes}
+				/>
 			</div>
 		);
 	}
