@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.set("useFindAndModify", false);
+// mongoose.set("useFindAndModify", false);
 require("dotenv").config();
 
 mongoose
@@ -22,6 +22,7 @@ const Schema = mongoose.Schema;
 // Create recipe schema
 const recipeSchema = new Schema({
 	title: { type: String, required: true },
+	category: { type: String, default: "Any Market" },
 	link: String,
 	ingredients: [
 		{

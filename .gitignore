@@ -12,3 +12,6 @@ npm-debug.log
 
 # webpack bundle
 build/*.js
+
+# test file
+tests.json

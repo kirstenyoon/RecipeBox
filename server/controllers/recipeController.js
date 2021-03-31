@@ -13,16 +13,19 @@ recipeController.getAllRecipes = (req, res, next) => {
 };
 
 recipeController.addRecipe = (req, res, next) => {
-	const { title, ingredients, rating } = req.body;
+	const { title, category, link, ingredients, notes, rating } = req.body;
 	// Create instance of Recipe model, passing in data from request body
-	models.Recipe.create({ title, ingredients, rating }, (err, newRecipe) => {
-		// If there's an error, invoke next and send to global error handler
-		if (err) {
-			next(err);
+	models.Recipe.create(
+		{ title, category, link, ingredients, notes, rating },
+		(err, newRecipe) => {
+			// If there's an error, invoke next and send to global error handler
+			if (err) {
+				next(err);
+			}
+			res.locals.newRecipe = newRecipe;
+			next();
 		}
-		res.locals.newRecipe = newRecipe;
-		next();
-	});
+	);
 };
 
 recipeController.updateRating = (req, res, next) => {

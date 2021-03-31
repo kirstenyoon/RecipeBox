@@ -13,9 +13,9 @@ class Recipe extends Component {
 				<div className="recipeHeader">
 					<div className="recipeHeaderText">
 						<p className="recipeTitles">{this.props.recipe.title}</p>
-						{/* <a className="recipeLinks" href="">
+						<a className="recipeLinks" href={this.props.recipe.link}>
 							link
-						</a> */}
+						</a>
 					</div>
 					<button className="deleteRecipeButton">x</button>
 				</div>
@@ -27,6 +27,10 @@ class Recipe extends Component {
 		);
 	}
 }
+
+const Link = () => {
+	return <a href={this.props.link}>link</a>;
+};
 
 // class IngredientItem extends Component {
 // 	render() {
