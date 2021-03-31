@@ -13,7 +13,11 @@ class Recipe extends Component {
 				<div className="recipeHeader">
 					<div className="recipeHeaderText">
 						<p className="recipeTitles">{this.props.recipe.title}</p>
-						<a className="recipeLinks" href={this.props.recipe.link}>
+						<a
+							className="recipeLinks"
+							href={this.props.recipe.link}
+							target="_blank"
+						>
 							link
 						</a>
 					</div>

@@ -7,7 +7,6 @@ class RecipesContainer extends Component {
 	render() {
 		return (
 			<div>
-				<button>Add Recipe</button>
 				<RecipeContainer />
 			</div>
 		);
