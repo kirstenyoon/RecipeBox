@@ -1,0 +1,14 @@
+# General
+.DS_Store
+
+# dependencies
+node_modules/
+
+# environment variables
+.env
+
+# logs
+npm-debug.log
+
+# webpack bundle
+build/*.js
