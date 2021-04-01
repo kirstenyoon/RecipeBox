@@ -15,6 +15,8 @@ body {
 	padding: 7px 20px;
 	border-radius: 5px;
 	font-weight: bold;
+	margin-left: 30px;
+	margin-bottom: 20px;
 }
 
 #addRecipeButton:hover {
@@ -26,7 +28,7 @@ body {
 #mainContent {
 	display: flex;
 	justify-content: space-between;
-	width: 90%;
+	width: 95%;
 	margin: auto;
 }
 
@@ -38,6 +40,8 @@ body {
 
 .marketDivs {
 	margin-bottom: 50px;
+	display: grid;
+	grid-template-columns: 1fr 6fr;
 }
 
 .recipes {
@@ -176,6 +180,7 @@ body {
 	margin: none;
 	box-shadow: 3px 5px 5px $light-gray;
 	min-width: 280px;
+	min-height: 50px;
 
 	li {
 		margin: 5px;
