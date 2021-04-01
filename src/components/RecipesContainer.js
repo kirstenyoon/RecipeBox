@@ -30,7 +30,6 @@ class RecipesContainer extends Component {
 					getRecipes={this.props.getRecipes}
 					getRecipes={this.props.getRecipes}
 					market={marketsList[i]}
-					// shoppingList={this.props.shoppingList}
 					loadShoppingList={this.props.loadShoppingList}
 				/>
 			);

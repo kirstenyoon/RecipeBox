@@ -47,14 +47,6 @@ class Recipe extends Component {
 	}
 
 	addToList(id, category, ingredients) {
-		// console.log("id", id);
-		// console.log("category", category);
-		// console.log("ingredients", ingredients);
-
-		// this.setState({
-		// 	shoppingList: this.props.shoppingList.push(ingredients),
-		// });
-
 		const data = {
 			market: category,
 			ingredients,

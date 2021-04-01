@@ -23,9 +23,13 @@ shoppingController.addToList = (req, res, next) => {
 	});
 };
 
-// shoppingController.deleteGroup = (req, res, next) => {
-
-// 	next();
-// }
+shoppingController.clearShoppingList = (req, res, next) => {
+	models.ShoppingList.deleteMany({}, (err) => {
+		if (err) {
+			next(err);
+		}
+		next();
+	});
+};
 
 module.exports = shoppingController;

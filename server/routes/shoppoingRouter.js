@@ -13,9 +13,13 @@ router.post("/addToShoppingList", shoppingController.addToList, (req, res) => {
 	res.status(200).json(res.locals.addedItems);
 });
 
-// // Handle delete group from shopping list
-// router.delete("/addToShoppingList", shoppingController.deleteGroup, (req, res) => {
-// 	res.status(200).json('group deleted');
-// });
+// // Handle delete to clear shopping list
+router.delete(
+	"/clearShoppingList",
+	shoppingController.clearShoppingList,
+	(req, res) => {
+		res.status(200).json("shopping list cleared");
+	}
+);
 
 module.exports = router;

@@ -12,7 +12,6 @@ class App extends Component {
 			showEditPopup: false,
 			recipe: {},
 			recipes: [],
-			// shoppingList: [],
 			shoppingLists: [],
 		};
 		this.togglePopup = this.togglePopup.bind(this);
