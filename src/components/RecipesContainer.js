@@ -10,7 +10,7 @@ class RecipesContainer extends Component {
 				<RecipeContainer
 					recipes={this.props.recipes}
 					deleteRecipe={this.props.deleteRecipe}
-					updateRating={this.props.updateRating}
+					getRecipes={this.props.getRecipes}
 				/>
 			</div>
 		);

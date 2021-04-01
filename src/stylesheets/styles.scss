@@ -33,6 +33,7 @@ body {
 	width: 280px;
 	box-shadow: 3px 5px 5px $light-gray;
 	min-width: 280px;
+	// position: relative;
 
 	.recipeHeader {
 		display: flex;
@@ -85,9 +86,47 @@ body {
 	.ingredients {
 		font-size: small;
 	}
+
+	.recipeCardButtons {
+		display: flex;
+		justify-content: space-around;
+		// position: absolute;
+		// bottom: 10px;
+		// right: 20%;
+		// left: 20%;
+	}
+
+	.editButton {
+		border: 1px solid $blue-btn;
+		border-radius: 5px;
+		background: white;
+		color: $blue-btn;
+		padding: 3px 10px;
+	}
+	.editButton:hover {
+		cursor: pointer;
+	}
+
+	.addButton {
+		border: 1px solid $blue-btn;
+		border-radius: 5px;
+		background: $blue-btn;
+		color: white;
+		padding: 3px 10px;
+	}
+	.addButton:hover {
+		cursor: pointer;
+	}
+
+	.ratingLine {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+	}
 }
 
-.addRecipePopup {
+.addRecipePopup,
+.editRecipePopup {
 	padding: 10px;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
@@ -131,10 +170,10 @@ body {
 		margin-top: 5px;
 	}
 
-	#title,
-	#ingredients {
-		font-style: italic;
-	}
+	// #title,
+	// #ingredients {
+	// 	font-style: italic;
+	// }
 }
 
 .box {
@@ -165,22 +204,4 @@ body {
 	text-align: center;
 	border: 1px solid #999;
 	font-size: 20px;
-}
-
-.ratingLine {
-	display: flex;
-	align-items: center;
-
-	.ratingInput {
-		width: 50px;
-		margin-right: 10px;
-	}
-
-	button {
-		border: 1px solid $blue-btn;
-		border-radius: 5px;
-		background-color: white;
-		color: $blue-btn;
-		font-size: 12px;
-	}
 }

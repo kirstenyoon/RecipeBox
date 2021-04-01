@@ -28,18 +28,18 @@ recipeController.addRecipe = (req, res, next) => {
 	);
 };
 
-recipeController.updateRating = (req, res, next) => {
+recipeController.editRecipe = (req, res, next) => {
 	// const id = req.params.id;
-	const { _id, rating } = req.body;
+	const { _id, title, category, link, ingredients, notes, rating } = req.body;
 	models.Recipe.findOneAndUpdate(
 		{ _id },
-		{ rating },
+		{ title, category, link, ingredients, notes, rating },
 		{ new: true },
-		(err, updatedRating) => {
+		(err, editedRecipe) => {
 			if (err) {
 				next(err);
 			}
-			res.locals.updatedRating = updatedRating;
+			res.locals.editedRecipe = editedRecipe;
 			next();
 		}
 	);

@@ -9,6 +9,7 @@ class App extends Component {
 		super(props);
 		this.state = {
 			showPopup: false,
+			showEditPopup: false,
 			recipe: {},
 			recipes: [],
 		};
@@ -16,7 +17,6 @@ class App extends Component {
 		this.getRecipes = this.getRecipes.bind(this);
 		this.addRecipe = this.addRecipe.bind(this);
 		this.deleteRecipe = this.deleteRecipe.bind(this);
-		this.updateRating = this.updateRating.bind(this);
 	}
 
 	componentDidMount() {
@@ -38,11 +38,12 @@ class App extends Component {
 			.catch((error) => console.log("Error: ", error));
 	}
 
-	addRecipe(title, link, ingredients, notes, rating) {
+	addRecipe(title, category, link, ingredients, notes, rating) {
 		// split ingredients list by commas
 		const ingredientsArray = ingredients.split(",");
 		const data = {
 			title,
+			category,
 			link,
 			ingredients: ingredientsArray,
 			notes,
@@ -79,23 +80,6 @@ class App extends Component {
 			.catch((err) => console.log("deleteRecipe ERROR: ", err));
 	}
 
-	updateRating(id, rating) {
-		const data = { _id: id, rating };
-
-		fetch("/recipes/updateRating", {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				this.getRecipes();
-			})
-			.catch((err) => console.log("updateRating ERROR: ", err));
-	}
-
 	render() {
 		return (
 			// Add Recipe Popup Div
@@ -116,6 +100,13 @@ class App extends Component {
 									type="text"
 									placeholder="required"
 								></input>
+								<label className="inputLabels">Market: </label>
+								<input
+									id="category"
+									className="inputs"
+									type="text"
+									placeholder="Any Market (default)"
+								></input>
 								<label className="inputLabels">Link: </label>
 								<input id="link" className="inputs" type="text"></input>
 								<label className="inputLabels">Ingredients: </label>
@@ -133,12 +124,20 @@ class App extends Component {
 								<button
 									onClick={() => {
 										const title = document.getElementById("title").value;
+										const category = document.getElementById("category").value;
 										const link = document.getElementById("link").value;
 										const ingredients = document.getElementById("ingredients")
 											.value;
 										const notes = document.getElementById("notes").value;
 										const rating = document.getElementById("rating").value;
-										this.addRecipe(title, link, ingredients, notes, rating);
+										this.addRecipe(
+											title,
+											category,
+											link,
+											ingredients,
+											notes,
+											rating
+										);
 									}}
 								>
 									Add
@@ -152,7 +151,7 @@ class App extends Component {
 				<RecipesContainer
 					recipes={this.state.recipes}
 					deleteRecipe={this.deleteRecipe}
-					updateRating={this.updateRating}
+					getRecipes={this.getRecipes}
 				/>
 			</div>
 		);

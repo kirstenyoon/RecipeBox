@@ -13,9 +13,9 @@ router.post("/addRecipe", recipeController.addRecipe, (req, res) => {
 	res.status(200).json(res.locals.newRecipe);
 });
 
-// Handle patch request
-router.put("/updateRating", recipeController.updateRating, (req, res) => {
-	res.status(200).json(res.locals.updatedRating);
+// Handle put request to edit recipe
+router.put("/editRecipe", recipeController.editRecipe, (req, res) => {
+	res.status(200).json(res.locals.editedRecipe);
 });
 
 // Handle delete request
