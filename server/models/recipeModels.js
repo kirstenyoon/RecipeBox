@@ -19,14 +19,25 @@ const recipeSchema = new Schema({
 const Recipe = mongoose.model("recipe", recipeSchema);
 
 // // Shopping list schema
-// const shoppingListSchema = new Schema({
-// 	market: String,
-// 	ingredients: [{ type: String }],
+const shoppingListSchema = new Schema({
+	market: String,
+	ingredients: [
+		{
+			type: String,
+		},
+	],
+});
+const ShoppingList = mongoose.model("shoppingList", shoppingListSchema);
+
+// const ingredientSchema = new Schema({
+// 	item: { type: String, required: true },
+// 	have: Boolean,
 // });
-// const ShoppingList = mongoose.model("shoppingList", shoppingListSchema);
+// const Ingredient = mongoose.model("ingredient", ingredientSchema);
 
 // Export models
 module.exports = {
 	Recipe,
-	// ShoppingList,
+	ShoppingList,
+	// Ingredient,
 };

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const recipeRouter = require("./routes/recipeRouter");
+const shoppingRouter = require("./routes/shoppoingRouter");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // define route handlers
 app.use("/recipes", recipeRouter);
+app.use("/shopping", shoppingRouter);
 
 // handle requests for static files
 // if (process.env.NODE_ENV === "production") {
