@@ -13,8 +13,8 @@ shoppingController.getAllShoppingLists = (req, res, next) => {
 };
 
 shoppingController.addToList = (req, res, next) => {
-	const { title, ingredients } = req.body;
-	models.ShoppingList.create({ title, ingredients }, (err, addedItems) => {
+	const { market, ingredients } = req.body;
+	models.ShoppingList.create({ market, ingredients }, (err, addedItems) => {
 		if (err) {
 			next(err);
 		}

@@ -1,6 +1,28 @@
 import React, { Component } from "react";
 
 class ShoppingList extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			shoppingLists: [],
+		};
+		this.addToList = this.addToList.bind(this);
+	}
+
+	componentDidMount() {
+		this.addToList();
+	}
+
+	addToList() {
+		fetch("/shopping/")
+			.then((response) => response.json())
+			.then((data) => {
+				this.setState({ shoppingLists: data });
+				console.log("shoppingLists:", this.state.shoppingLists);
+			})
+			.catch((error) => console.log("Error: ", error));
+	}
+
 	render() {
 		const items = [];
 		// Iterate over shopping list
