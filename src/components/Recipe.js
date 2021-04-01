@@ -47,9 +47,12 @@ class Recipe extends Component {
 	}
 
 	addToList(id, category, ingredients) {
-		console.log("id", id);
-		console.log("category", category);
-		console.log("ingredients", ingredients);
+		// console.log("id", id);
+		// console.log("category", category);
+		// console.log("ingredients", ingredients);
+		this.setState({
+			shoppingList: this.props.shoppingList.push(ingredients),
+		});
 	}
 
 	render() {
@@ -202,6 +205,7 @@ class Recipe extends Component {
 								this.props.recipe.category,
 								this.props.recipe.ingredients
 							);
+							this.props.getRecipes();
 						}}
 					>
 						Add To List

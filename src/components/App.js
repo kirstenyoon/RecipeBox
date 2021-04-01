@@ -12,6 +12,7 @@ class App extends Component {
 			showEditPopup: false,
 			recipe: {},
 			recipes: [],
+			shoppingList: [],
 		};
 		this.togglePopup = this.togglePopup.bind(this);
 		this.getRecipes = this.getRecipes.bind(this);
@@ -157,9 +158,11 @@ class App extends Component {
 						recipes={this.state.recipes}
 						deleteRecipe={this.deleteRecipe}
 						getRecipes={this.getRecipes}
+						getRecipes={this.getRecipes}
+						shoppingList={this.state.shoppingList}
 					/>
 
-					<ShoppingList />
+					<ShoppingList shoppingList={this.state.shoppingList} />
 				</div>
 			</div>
 		);

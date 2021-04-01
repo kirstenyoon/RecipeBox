@@ -16,6 +16,7 @@ class RecipeContainer extends Component {
 					recipe={this.props.recipes[i]}
 					deleteRecipe={this.props.deleteRecipe}
 					getRecipes={this.props.getRecipes}
+					shoppingList={this.props.shoppingList}
 				/>
 			);
 		}

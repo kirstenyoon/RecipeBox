@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class ShoppingList extends Component {
 	render() {
+		console.log("SHOPPING LIST", this.props.shoppingList);
 		return (
 			<div id="shoppingListContainer">
 				<h2>Shopping List</h2>
