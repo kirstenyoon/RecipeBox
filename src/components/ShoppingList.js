@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 class ShoppingList extends Component {
 	render() {
-		console.log("SHOPPING LIST", this.props.shoppingList);
-
 		const items = [];
 		// Iterate over shopping list
 		for (let i = 0; i < this.props.shoppingList.length; i++) {
