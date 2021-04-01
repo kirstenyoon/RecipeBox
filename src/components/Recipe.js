@@ -50,9 +50,28 @@ class Recipe extends Component {
 		// console.log("id", id);
 		// console.log("category", category);
 		// console.log("ingredients", ingredients);
-		this.setState({
-			shoppingList: this.props.shoppingList.push(ingredients),
-		});
+
+		// this.setState({
+		// 	shoppingList: this.props.shoppingList.push(ingredients),
+		// });
+
+		const data = {
+			market: category,
+			ingredients,
+		};
+
+		fetch("/shopping/addToShoppingList", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				this.props.loadShoppingList();
+			})
+			.catch((err) => console.log("addToList ERROR:", err));
 	}
 
 	render() {

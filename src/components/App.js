@@ -12,12 +12,14 @@ class App extends Component {
 			showEditPopup: false,
 			recipe: {},
 			recipes: [],
-			shoppingList: [],
+			// shoppingList: [],
+			shoppingLists: [],
 		};
 		this.togglePopup = this.togglePopup.bind(this);
 		this.getRecipes = this.getRecipes.bind(this);
 		this.addRecipe = this.addRecipe.bind(this);
 		this.deleteRecipe = this.deleteRecipe.bind(this);
+		this.loadShoppingList = this.loadShoppingList.bind(this);
 	}
 
 	componentDidMount() {
@@ -83,6 +85,16 @@ class App extends Component {
 				this.getRecipes();
 			})
 			.catch((err) => console.log("deleteRecipe ERROR: ", err));
+	}
+
+	loadShoppingList() {
+		fetch("/shopping/")
+			.then((response) => response.json())
+			.then((data) => {
+				this.setState({ shoppingLists: data });
+				console.log("shoppingLists:", this.state.shoppingLists);
+			})
+			.catch((error) => console.log("Error: ", error));
 	}
 
 	render() {
@@ -160,9 +172,13 @@ class App extends Component {
 						getRecipes={this.getRecipes}
 						getRecipes={this.getRecipes}
 						shoppingList={this.state.shoppingList}
+						loadShoppingList={this.loadShoppingList}
 					/>
 
-					<ShoppingList shoppingList={this.state.shoppingList} />
+					<ShoppingList
+						shoppingLists={this.state.shoppingLists}
+						loadShoppingList={this.loadShoppingList}
+					/>
 				</div>
 			</div>
 		);
