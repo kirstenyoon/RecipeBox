@@ -51,6 +51,10 @@ body {
 	width: 280px;
 	box-shadow: 3px 5px 5px $light-gray;
 	min-width: 280px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
 	// position: relative;
 
 	.recipeHeader {
