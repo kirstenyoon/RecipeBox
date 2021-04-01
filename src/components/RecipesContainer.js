@@ -8,8 +8,9 @@ class RecipesContainer extends Component {
 		return (
 			<div>
 				<RecipeContainer
-					deleteRecipe={this.props.deleteRecipe}
 					recipes={this.props.recipes}
+					deleteRecipe={this.props.deleteRecipe}
+					updateRating={this.props.updateRating}
 				/>
 			</div>
 		);

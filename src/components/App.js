@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import RecipesContainer from "./RecipesContainer.js";
 import AddRecipePopup from "./AddRecipePopup";
 import "../stylesheets/styles.scss";
@@ -15,6 +16,11 @@ class App extends Component {
 		this.getRecipes = this.getRecipes.bind(this);
 		this.addRecipe = this.addRecipe.bind(this);
 		this.deleteRecipe = this.deleteRecipe.bind(this);
+		this.updateRating = this.updateRating.bind(this);
+	}
+
+	componentDidMount() {
+		this.getRecipes();
 	}
 
 	togglePopup() {
@@ -73,15 +79,28 @@ class App extends Component {
 			.catch((err) => console.log("deleteRecipe ERROR: ", err));
 	}
 
-	componentDidMount() {
-		this.getRecipes();
+	updateRating(id, rating) {
+		const data = { _id: id, rating };
+
+		fetch("/recipes/updateRating", {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				this.getRecipes();
+			})
+			.catch((err) => console.log("updateRating ERROR: ", err));
 	}
 
 	render() {
 		return (
+			// Add Recipe Popup Div
 			<div>
 				<button onClick={this.togglePopup}>Add Recipe</button>
-
 				{this.state.showPopup && (
 					<AddRecipePopup
 						content={
@@ -127,8 +146,9 @@ class App extends Component {
 				)}
 
 				<RecipesContainer
-					deleteRecipe={this.deleteRecipe}
 					recipes={this.state.recipes}
+					deleteRecipe={this.deleteRecipe}
+					updateRating={this.updateRating}
 				/>
 			</div>
 		);

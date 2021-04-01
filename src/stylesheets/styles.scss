@@ -21,7 +21,7 @@ body {
 
 		.deleteRecipeButton {
 			border: none;
-			color: $primary-blue-gray;
+			color: $bright-salmon;
 			background-color: white;
 		}
 
@@ -98,4 +98,22 @@ body {
 .recipesContainer {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.ratingLine {
+	display: flex;
+	align-items: center;
+
+	.ratingInput {
+		width: 50px;
+		margin-right: 10px;
+	}
+
+	button {
+		border: 1px solid $blue-btn;
+		border-radius: 5px;
+		background-color: white;
+		color: $blue-btn;
+		font-size: 12px;
+	}
 }

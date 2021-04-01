@@ -15,6 +15,7 @@ class RecipeContainer extends Component {
 					recipeKey={"recipe" + i}
 					recipe={this.props.recipes[i]}
 					deleteRecipe={this.props.deleteRecipe}
+					updateRating={this.props.updateRating}
 				/>
 			);
 		}

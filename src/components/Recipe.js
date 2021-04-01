@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
 class Recipe extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			rating: -1,
+		};
+	}
+
 	render() {
-		// const ingredientList = [];
-		// for (let i = 0; i < this.props.recipe.ingredients; i++) {
-		// 	// ingredientList.push(<IngredientItem />);
-		// 	ingredientList.push(<li>{this.props.recipe.ingredients[i]}</li>);
-		// }
 		return (
 			<div className="recipes">
 				<div className="recipeHeader">
@@ -34,21 +36,30 @@ class Recipe extends Component {
 				</div>
 				<p className="ingredientsLabel">Ingredients</p>
 				<p className="ingredientItems">{this.props.recipe.ingredients}</p>
-				<label className="rating">Rating:</label>
-				<input type="text" className="rating"></input>
+				<div className="ratingLine">
+					<label className="rating">Rating:</label>
+					{this.props.recipe.rating && <p>{this.props.recipe.rating}</p>}
+					{!this.props.recipe.rating && (
+						<div>
+							<input
+								type="text"
+								id="ratingInput"
+								className="ratingInput"
+							></input>
+							<button
+								onClick={() => {
+									const rating = document.getElementById("ratingInput").value;
+									this.props.updateRating(this.props.recipe._id, rating);
+								}}
+							>
+								Submit
+							</button>
+						</div>
+					)}
+				</div>
 			</div>
 		);
 	}
 }
-
-const Link = () => {
-	return <a href={this.props.link}>link</a>;
-};
-
-// class IngredientItem extends Component {
-// 	render() {
-// 		return <p>ingredientItem</p>;
-// 	}
-// }
 
 export default Recipe;

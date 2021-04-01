@@ -30,7 +30,7 @@ recipeController.addRecipe = (req, res, next) => {
 
 recipeController.updateRating = (req, res, next) => {
 	// const id = req.params.id;
-	const { rating, _id } = req.body;
+	const { _id, rating } = req.body;
 	models.Recipe.findOneAndUpdate(
 		{ _id },
 		{ rating },
