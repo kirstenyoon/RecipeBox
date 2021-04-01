@@ -21,7 +21,7 @@ class RecipeContainer extends Component {
 		}
 
 		return (
-			<div>
+			<div className="marketDivs">
 				<h2>{this.props.market}</h2>
 				<div className="recipesContainer">{recipes}</div>
 			</div>

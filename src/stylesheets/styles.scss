@@ -5,6 +5,9 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+// #root {
+// }
+
 #addRecipeButton {
 	border: 1px solid $blue-btn;
 	background-color: $blue-btn;
@@ -20,16 +23,27 @@ body {
 	color: $blue-btn;
 }
 
+#mainContent {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	margin: auto;
+}
+
 .recipesContainer {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	// justify-content: center;
+}
+
+.marketDivs {
+	margin-bottom: 50px;
 }
 
 .recipes {
 	border: 1px solid black;
 	padding: 10px;
-	margin: 20px;
+	margin: none;
 	width: 280px;
 	box-shadow: 3px 5px 5px $light-gray;
 	min-width: 280px;
@@ -151,6 +165,20 @@ body {
 		cursor: pointer;
 		background-color: white;
 		color: $blue-btn;
+	}
+}
+
+#shoppingList {
+	border: 1px solid black;
+	width: 280px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: none;
+	box-shadow: 3px 5px 5px $light-gray;
+	min-width: 280px;
+
+	li {
+		margin: 5px;
 	}
 }
 

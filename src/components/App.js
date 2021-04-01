@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import RecipesContainer from "./RecipesContainer.js";
 import AddRecipePopup from "./AddRecipePopup";
+import ShoppingList from "./ShoppingList";
 import "../stylesheets/styles.scss";
 
 class App extends Component {
@@ -151,11 +152,15 @@ class App extends Component {
 					/>
 				)}
 
-				<RecipesContainer
-					recipes={this.state.recipes}
-					deleteRecipe={this.deleteRecipe}
-					getRecipes={this.getRecipes}
-				/>
+				<div id="mainContent">
+					<RecipesContainer
+						recipes={this.state.recipes}
+						deleteRecipe={this.deleteRecipe}
+						getRecipes={this.getRecipes}
+					/>
+
+					<ShoppingList />
+				</div>
 			</div>
 		);
 	}
