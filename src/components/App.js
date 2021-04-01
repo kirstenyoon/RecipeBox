@@ -32,11 +32,15 @@ class App extends Component {
 			.catch((error) => console.log("Error: ", error));
 	}
 
-	addRecipe() {
-		// TEST DATA
+	addRecipe(title, link, ingredients, notes, rating) {
+		// split ingredients list by commas
+		const ingredientsArray = ingredients.split(",");
 		const data = {
-			title: "Test Recipe",
-			rating: 5,
+			title,
+			link,
+			ingredients: ingredientsArray,
+			notes,
+			rating,
 		};
 		fetch("/recipes/addRecipe", {
 			method: "POST",
@@ -85,17 +89,37 @@ class App extends Component {
 								<b>Add Recipe</b>
 								<p></p>
 								<label>Title: </label>
-								<input id="titleInput" type="text"></input>
+								<input id="title" type="text" value={this.state.title}></input>
 								<label>Link: </label>
-								<input id="linkInput" type="text"></input>
+								<input id="link" type="text" value={this.state.link}></input>
 								<label>Ingredients: </label>
-								<input id="ingredientsInput" type="text"></input>
+								<input
+									id="ingredients"
+									type="text"
+									value={this.state.ingredients}
+								></input>
 								<label>Notes: </label>
-								<input id="notesInput" type="text"></input>
+								<input id="notes" type="text" value={this.state.notes}></input>
 								<label>Rating: </label>
-								<input id="ratingInput" type="text"></input>
+								<input
+									id="rating"
+									type="text"
+									value={this.state.rating}
+								></input>
 								<p></p>
-								<button onClick={this.addRecipe}>Add</button>
+								<button
+									onClick={() => {
+										const title = document.getElementById("title").value;
+										const link = document.getElementById("link").value;
+										const ingredients = document.getElementById("ingredients")
+											.value;
+										const notes = document.getElementById("notes").value;
+										const rating = document.getElementById("rating").value;
+										this.addRecipe(title, link, ingredients, notes, rating);
+									}}
+								>
+									Add
+								</button>
 							</div>
 						}
 						handleClose={this.togglePopup}
