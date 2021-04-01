@@ -24,7 +24,9 @@ class Recipe extends Component {
 						)}
 					</div>
 					<button
-						onClick={this.props.deleteRecipe}
+						onClick={() => {
+							this.props.deleteRecipe(this.props.recipe._id);
+						}}
 						className="deleteRecipeButton"
 					>
 						x

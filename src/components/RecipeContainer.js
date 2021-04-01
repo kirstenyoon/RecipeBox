@@ -12,6 +12,7 @@ class RecipeContainer extends Component {
 			recipes.push(
 				<Recipe
 					key={"recipe" + i}
+					recipeKey={"recipe" + i}
 					recipe={this.props.recipes[i]}
 					deleteRecipe={this.props.deleteRecipe}
 				/>

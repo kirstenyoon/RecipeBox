@@ -53,11 +53,8 @@ class App extends Component {
 			.catch((err) => console.log("addRecipe ERROR:", err));
 	}
 
-	deleteRecipe() {
-		console.log("Delete Recipe button clicked");
-		// UPDATE TO TEST
-		console.log("PROPS HERE", this.props);
-		// data = { _id: "" };
+	deleteRecipe(id) {
+		const data = { _id: id };
 		fetch("/recipes/deleteRecipe", {
 			method: "DELETE",
 			headers: {
