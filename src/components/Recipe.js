@@ -31,7 +31,7 @@ class Recipe extends Component {
 						}}
 						className="deleteRecipeButton"
 					>
-						x
+						X
 					</button>
 				</div>
 				<p className="ingredientsLabel">Ingredients</p>

@@ -100,31 +100,35 @@ class App extends Component {
 		return (
 			// Add Recipe Popup Div
 			<div>
-				<button onClick={this.togglePopup}>Add Recipe</button>
+				<button id="addRecipeButton" onClick={this.togglePopup}>
+					Add Recipe
+				</button>
 				{this.state.showPopup && (
 					<AddRecipePopup
 						content={
 							<div className="addRecipePopup">
-								<b>Add Recipe</b>
+								<b id="inputTitle">Add Recipe</b>
 								<p></p>
-								<label>Title: </label>
-								<input id="title" type="text" value={this.state.title}></input>
-								<label>Link: </label>
-								<input id="link" type="text" value={this.state.link}></input>
-								<label>Ingredients: </label>
+								<label className="inputLabels">Title: </label>
+								<input
+									id="title"
+									className="inputs"
+									type="text"
+									placeholder="required"
+								></input>
+								<label className="inputLabels">Link: </label>
+								<input id="link" className="inputs" type="text"></input>
+								<label className="inputLabels">Ingredients: </label>
 								<input
 									id="ingredients"
+									className="inputs"
 									type="text"
-									value={this.state.ingredients}
+									placeholder="separate ingredients by commas"
 								></input>
-								<label>Notes: </label>
-								<input id="notes" type="text" value={this.state.notes}></input>
-								<label>Rating: </label>
-								<input
-									id="rating"
-									type="text"
-									value={this.state.rating}
-								></input>
+								<label className="inputLabels">Notes: </label>
+								<input id="notes" className="inputs" type="text"></input>
+								<label className="inputLabels">Rating: </label>
+								<input id="rating" className="inputs" type="text"></input>
 								<p></p>
 								<button
 									onClick={() => {
