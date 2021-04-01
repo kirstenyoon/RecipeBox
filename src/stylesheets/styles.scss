@@ -187,6 +187,24 @@ body {
 	}
 }
 
+#shoppingListHeader {
+	display: flex;
+	align-items: center;
+}
+
+#clearButton {
+	border: 1px solid $blue-btn;
+	border-radius: 5px;
+	background: white;
+	color: $blue-btn;
+	padding: 2px 8px;
+	margin-left: 15px;
+}
+
+#clearButton:hover {
+	cursor: pointer;
+}
+
 .popup-box {
 	position: fixed;
 	background: #00000050;

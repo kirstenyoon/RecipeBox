@@ -30,6 +30,7 @@ class ShoppingList extends Component {
 				<div id="shoppingListHeader">
 					<h2>Shopping List</h2>
 					<button
+						id="clearButton"
 						onClick={() => {
 							this.clearShoppingList();
 							this.props.loadShoppingList();
