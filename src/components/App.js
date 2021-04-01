@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import RecipesContainer from "./RecipesContainer.js";
 import AddRecipePopup from "./AddRecipePopup";
 import "../stylesheets/styles.scss";
@@ -41,6 +40,10 @@ class App extends Component {
 	addRecipe(title, category, link, ingredients, notes, rating) {
 		// split ingredients list by commas
 		const ingredientsArray = ingredients.split(",");
+		// Default category to Any Market
+		if (category === "") {
+			category = "Any Market";
+		}
 		const data = {
 			title,
 			category,

@@ -19,7 +19,13 @@ class RecipeContainer extends Component {
 				/>
 			);
 		}
-		return <div className="recipesContainer">{recipes}</div>;
+
+		return (
+			<div>
+				<h2>{this.props.market}</h2>
+				<div className="recipesContainer">{recipes}</div>
+			</div>
+		);
 	}
 }
 
