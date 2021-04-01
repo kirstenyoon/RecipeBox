@@ -5,6 +5,15 @@ class ShoppingList extends Component {
 		this.props.loadShoppingList();
 	}
 
+	clearShoppingList() {
+		fetch("/shopping/clearShoppingList", {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		}).catch((err) => console.log("clearShoppingList ERROR: ", err));
+	}
+
 	render() {
 		const items = [];
 
@@ -18,7 +27,17 @@ class ShoppingList extends Component {
 
 		return (
 			<div id="shoppingListContainer">
-				<h2>Shopping List</h2>
+				<div id="shoppingListHeader">
+					<h2>Shopping List</h2>
+					<button
+						onClick={() => {
+							this.clearShoppingList();
+							this.props.loadShoppingList();
+						}}
+					>
+						clear
+					</button>
+				</div>
 				<ul id="shoppingList">{items}</ul>
 			</div>
 		);

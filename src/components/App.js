@@ -91,7 +91,6 @@ class App extends Component {
 			.then((response) => response.json())
 			.then((data) => {
 				this.setState({ shoppingLists: data });
-				console.log("shoppingLists:", this.state.shoppingLists);
 			})
 			.catch((error) => console.log("Error: ", error));
 	}
