@@ -73,6 +73,7 @@ body {
 
 	.recipeTitles,
 	.ingredientsLabel,
+	.notesLabel,
 	.rating {
 		font-weight: bold;
 		font-size: medium;
@@ -80,11 +81,17 @@ body {
 	}
 
 	.ingredientLists {
-		margin: 0px;
+		margin-top: 0px;
+		margin-bottom: 10px;
 	}
 
 	.ingredients {
 		font-size: small;
+	}
+
+	.notes {
+		font-size: medium;
+		margin: 5px 10px 0px 5px;
 	}
 
 	.recipeCardButtons {
@@ -121,7 +128,6 @@ body {
 	.ratingLine {
 		display: flex;
 		align-items: center;
-		margin-bottom: 20px;
 	}
 }
 

@@ -85,12 +85,19 @@ class Recipe extends Component {
 					<p className="ingredientsLabel">Ingredients</p>
 				)}
 				<ul className="ingredientLists">{ingredientList}</ul>
+
+				{this.props.recipe.notes && (
+					<label className="notesLabel">Notes:</label>
+				)}
+				<p className="notes">{this.props.recipe.notes}</p>
+
 				<div className="ratingLine">
 					{this.props.recipe.rating && (
 						<label className="rating">Rating:</label>
 					)}
 					<p>{this.props.recipe.rating}</p>
 				</div>
+
 				<div className="recipeCardButtons">
 					<button
 						className="editButton"
