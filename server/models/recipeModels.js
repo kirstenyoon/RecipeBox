@@ -1,20 +1,4 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
-
-mongoose
-	.connect(
-		`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oxti2.mongodb.net/recipeCollectorDB?retryWrites=true&w=majority`,
-		{
-			// options for the connect method to parse the URI
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useFindAndModify: false,
-			// sets the name of the DB that our collections are part of
-			dbName: "recipeCollectorDB",
-		}
-	)
-	.then(() => console.log("Connected to Mongo DB."))
-	.catch((err) => console.log(err));
 
 const Schema = mongoose.Schema;
 
@@ -34,7 +18,15 @@ const recipeSchema = new Schema({
 // Create recipe model
 const Recipe = mongoose.model("recipe", recipeSchema);
 
+// // Shopping list schema
+// const shoppingListSchema = new Schema({
+// 	market: String,
+// 	ingredients: [{ type: String }],
+// });
+// const ShoppingList = mongoose.model("shoppingList", shoppingListSchema);
+
 // Export models
 module.exports = {
 	Recipe,
+	// ShoppingList,
 };

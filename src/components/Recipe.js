@@ -10,6 +10,7 @@ class Recipe extends Component {
 		};
 		this.toggleEditPopup = this.toggleEditPopup.bind(this);
 		this.editRecipe = this.editRecipe.bind(this);
+		this.addToList = this.addToList.bind(this);
 	}
 
 	toggleEditPopup() {
@@ -43,6 +44,12 @@ class Recipe extends Component {
 				this.props.getRecipes();
 			})
 			.catch((err) => console.log("editRecipe ERROR: ", err));
+	}
+
+	addToList(id, category, ingredients) {
+		console.log("id", id);
+		console.log("category", category);
+		console.log("ingredients", ingredients);
 	}
 
 	render() {
@@ -187,7 +194,18 @@ class Recipe extends Component {
 							handleClose={this.toggleEditPopup}
 						/>
 					)}
-					<button className="addButton">Add To List</button>
+					<button
+						className="addButton"
+						onClick={() => {
+							this.addToList(
+								this.props.recipe._id,
+								this.props.recipe.category,
+								this.props.recipe.ingredients
+							);
+						}}
+					>
+						Add To List
+					</button>
 				</div>
 			</div>
 		);

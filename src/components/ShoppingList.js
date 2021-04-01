@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class ShoppingList extends Component {
 	render() {
 		return (
-			<div>
+			<div id="shoppingListContainer">
 				<h2>Shopping List</h2>
 				<ul id="shoppingList">
 					<li>Item</li>

@@ -2,8 +2,25 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const recipeRouter = require("./routes/recipeRouter");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 const PORT = 3001;
+
+mongoose
+	.connect(
+		`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oxti2.mongodb.net/recipeCollectorDB?retryWrites=true&w=majority`,
+		{
+			// options for the connect method to parse the URI
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useFindAndModify: false,
+			// sets the name of the DB that our collections are part of
+			dbName: "recipeCollectorDB",
+		}
+	)
+	.then(() => console.log("Connected to Mongo DB."))
+	.catch((err) => console.log(err));
 
 // handle parsing request body
 app.use(express.json());

@@ -11,8 +11,8 @@ class RecipeContainer extends Component {
 		for (let i = 0; i < this.props.recipes.length; i++) {
 			recipes.push(
 				<Recipe
-					key={"recipe" + i}
-					recipeKey={"recipe" + i}
+					key={this.props.recipes[i].category + i}
+					recipeKey={this.props.recipes[i].category + i}
 					recipe={this.props.recipes[i]}
 					deleteRecipe={this.props.deleteRecipe}
 					getRecipes={this.props.getRecipes}
