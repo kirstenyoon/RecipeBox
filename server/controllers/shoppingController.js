@@ -32,4 +32,14 @@ shoppingController.clearShoppingList = (req, res, next) => {
 	});
 };
 
+shoppingController.removeRecipe = (req, res, next) => {
+	const { _id } = req.body;
+	models.ShoppingList.findOneAndDelete({ _id }, (err) => {
+		if (err) {
+			next(err);
+		}
+		next();
+	});
+};
+
 module.exports = shoppingController;

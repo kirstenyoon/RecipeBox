@@ -13,7 +13,7 @@ router.post("/addToShoppingList", shoppingController.addToList, (req, res) => {
 	res.status(200).json(res.locals.addedItems);
 });
 
-// // Handle delete to clear shopping list
+// Handle delete to clear shopping list
 router.delete(
 	"/clearShoppingList",
 	shoppingController.clearShoppingList,
@@ -21,5 +21,10 @@ router.delete(
 		res.status(200).json("shopping list cleared");
 	}
 );
+
+// Handle delete to remove recipe from shopping list
+router.delete("/removeItem", shoppingController.removeRecipe, (req, res) => {
+	res.status(200).json("item removed");
+});
 
 module.exports = router;
