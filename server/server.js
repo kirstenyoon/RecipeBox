@@ -1,12 +1,12 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const path = require("path");
-const recipeRouter = require("./routes/recipeRouter");
-const shoppingRouter = require("./routes/shoppoingRouter");
-const mongoose = require("mongoose");
-require("dotenv").config();
+const path = require('path');
+const recipeRouter = require('./routes/recipeRouter');
+const shoppingRouter = require('./routes/shoppoingRouter');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-const PORT = 3001;
+const PORT = 3000;
 
 mongoose
 	.connect(
@@ -17,10 +17,10 @@ mongoose
 			useUnifiedTopology: true,
 			useFindAndModify: false,
 			// sets the name of the DB that our collections are part of
-			dbName: "recipeCollectorDB",
+			dbName: 'recipeCollectorDB',
 		}
 	)
-	.then(() => console.log("Connected to Mongo DB."))
+	.then(() => console.log('Connected to Mongo DB.'))
 	.catch((err) => console.log(err));
 
 // handle parsing request body
@@ -28,16 +28,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // define route handlers
-app.use("/recipes", recipeRouter);
-app.use("/shopping", shoppingRouter);
+app.use('/recipes', recipeRouter);
+app.use('/shopping', shoppingRouter);
 
 // handle requests for static files
 // if (process.env.NODE_ENV === "production") {
 // statically serve everything in the build folder on the route '/build'
-app.use("/build", express.static(path.join(__dirname, "../build")));
+app.use('/build', express.static(path.join(__dirname, '../build')));
 // serve index.html on the route '/'
-app.get("/", (req, res) => {
-	return res.status(200).sendFile(path.join(__dirname, "../index.html"));
+app.get('/', (req, res) => {
+	return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 // }
 
@@ -49,9 +49,9 @@ app.use((req, res) =>
 // global error handler
 app.use((err, req, res, next) => {
 	const defaultErr = {
-		log: "Express error handler caught unknown middleware error",
+		log: 'Express error handler caught unknown middleware error',
 		status: 500,
-		message: { err: "An error occurred" },
+		message: { err: 'An error occurred' },
 	};
 	const errorObj = Object.assign({}, defaultErr, err);
 	return res.status(errorObj.status).json(errorObj.message);
