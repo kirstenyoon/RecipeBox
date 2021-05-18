@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RecipesContainer from './RecipesContainer.js';
 import AddRecipePopup from './AddRecipePopup';
-import ShoppingList from './ShoppingList';
+import { ShoppingList } from './ShoppingList';
 import '../stylesheets/styles.scss';
 
 const App = () => {
@@ -128,8 +128,8 @@ const App = () => {
 									const title = document.getElementById('title').value;
 									const category = document.getElementById('category').value;
 									const link = document.getElementById('link').value;
-									const ingredients = document.getElementById('ingredients')
-										.value;
+									const ingredients =
+										document.getElementById('ingredients').value;
 									const notes = document.getElementById('notes').value;
 									const rating = document.getElementById('rating').value;
 									addRecipe(title, category, link, ingredients, notes, rating);

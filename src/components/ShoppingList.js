@@ -44,7 +44,7 @@ const ShoppingList = (props) => {
 };
 
 const Item = (props) => {
-	return <li className="items">{props.item}</li>;
+	return <li className="items">{props.item.trim()}</li>;
 };
 
-export default ShoppingList;
+export { ShoppingList, Item };
