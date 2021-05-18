@@ -1,5 +1,5 @@
 import React from 'react';
-import Recipe from './Recipe';
+import { Recipe } from './Recipe';
 
 const RecipeContainer = (props) => {
 	const recipes = [];

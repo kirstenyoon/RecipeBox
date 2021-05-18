@@ -222,9 +222,8 @@ const Recipe = (props) => {
 		</div>
 	);
 };
-
 const Ingredient = (props) => {
-	return <li className="ingredients">{props.ingredient}</li>;
+	return <li className="ingredients">{props.ingredient.trim()}</li>;
 };
 
-export default Recipe;
+export { Recipe, Ingredient };

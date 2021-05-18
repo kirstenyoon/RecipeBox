@@ -1,4 +1,4 @@
-@import "_variables.scss";
+@import '_variables.scss';
 
 body {
 	background-color: white;
@@ -8,8 +8,6 @@ body {
 h2 {
 	margin-right: 10px;
 }
-// #root {
-// }
 
 #addRecipeButton {
 	border: 1px solid $blue-btn;
@@ -254,7 +252,7 @@ h2 {
 }
 
 .close-icon {
-	content: "x";
+	content: 'x';
 	cursor: pointer;
 	position: fixed;
 	right: calc(15% - 30px);
